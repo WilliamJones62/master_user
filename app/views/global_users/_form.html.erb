@@ -1,0 +1,89 @@
+<%= form_with(model: global_user, local: true) do |form| %>
+  <% if global_user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(global_user.errors.count, "error") %> prohibited this global_user from being saved:</h2>
+
+      <ul>
+      <% global_user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th> <%= form.label :prospects %> </th>
+        <th> <%= form.label :manager_id %> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> <%= form.check_box :prospects, id: :global_user_prospects %> </td>
+        <td> <%= form.text_field :manager_id, id: :global_user_manager_id %> </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th> <%= form.label :truck_monitoring %> </th>
+        <th> <%= form.label :user_dept %> </th>
+        <th> <%= form.label :dept_manager %> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> <%= form.check_box :truck_monitoring, id: :global_user_truck_monitoring %> </td>
+        <td> <%= form.text_field :user_dept, id: :global_user_user_dept %> </td>
+        <td> <%= form.text_field :dept_manager, id: :global_user_dept_manager %> </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th> <%= form.label :dispatch %> </th>
+        <th> <%= form.label :holiday_bird_caps %> </th>
+        <th> <%= form.label :order_input %> </th>
+        <th> <%= form.label :pricing %> </th>
+        <th> <%= form.label :rapid_order %> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> <%= form.check_box :dispatch, id: :global_user_dispatch %> </td>
+        <td> <%= form.check_box :holiday_bird_caps, id: :global_user_holiday_bird_caps %> </td>
+        <td> <%= form.check_box :order_input, id: :global_user_order_input %> </td>
+        <td> <%= form.check_box :pricing, id: :global_user_pricing %> </td>
+        <td> <%= form.check_box :rapid_order, id: :global_user_rapid_order %> </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th> <%= form.label :refusals %> </th>
+        <th> <%= form.label :short_term_trucks %> </th>
+        <th> <%= form.label :take_in %> </th>
+        <th> <%= form.label :temp_hire %> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> <%= form.check_box :refusals, id: :global_user_refusals %> </td>
+        <td> <%= form.check_box :short_term_trucks, id: :global_user_short_term_trucks %> </td>
+        <td> <%= form.check_box :take_in, id: :global_user_take_in %> </td>
+        <td> <%= form.check_box :temp_hire, id: :global_user_temp_hire %> </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

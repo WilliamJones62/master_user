@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+<h2>Edit User <%= @global_user.email %></h2>
+
+<%= render 'form', global_user: @global_user %>
+
+<br>
+<%= link_to 'Back', global_users_path, class: "btn btn-primary" %>

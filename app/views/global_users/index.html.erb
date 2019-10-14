@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<table id="normal_dt"  class="stripe" class="mytable" class="display" cellspacing="0" >
+  <thead>
+    <tr>
+      <th>User</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @global_users.each do |global_user| %>
+      <tr>
+        <td>&nbsp;&nbsp;<%= global_user.email %></td>
+        <td><%= link_to 'Edit', edit_global_user_path(global_user), class: "btn btn-primary" %></td>
+        <td><%= link_to 'Delete', global_user, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-primary" %></td>      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2> Import Users</h2>
+<%= form_tag import_user_loads_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
