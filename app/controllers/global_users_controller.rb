@@ -33,6 +33,33 @@ class GlobalUsersController < ApplicationController
     end
   end
 
+  # GET /global_users/refresh
+  def refresh
+    employees = Employee.all
+    employees.each do |e|
+      if e.Employee_Status == 'Active'
+        # See if a User exists for this active employee. If not then create one if the ssn4 is present.
+        u = User.find_by email: e.Badge_
+        if u.blank? && !e.ssn4.blank?
+          u = User.new
+          u.email = e.Badge_
+          u.password = e.ssn4
+          u.take_in = true
+          u.save
+          logger.info 'user '+e.Badge_+' created'
+        end
+      elsif e.Employee_Status == 'Terminated'
+        # See if a User exists for this terminated employee. If it does then delete it.
+        u = User.find_by email: e.Badge_
+        if !u.blank?
+          u.delete
+          logger.info 'user '+e.Badge_+' deleted'
+        end
+      end
+    end
+    redirect_to global_users_url, notice: 'Global users were successfully refreshed.'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_global_user
@@ -41,6 +68,8 @@ class GlobalUsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def global_user_params
-      params.require(:global_user).permit(:manager, :manager_id, :user_dept, :dept_manager, :dispatch, :holiday_bird_caps, :master_user, :order_input, :pricing, :prospects, :rapid_order, :refusals, :short_term_trucks, :take_in, :temp_hire, :truck_monitoring)
+      params.require(:global_user).permit(:manager, :manager_id, :user_dept, :dept_manager, :dispatch, :holiday_bird_caps, :master_user, :order_input, :pricing,
+        :prospects, :rapid_order, :refusals, :short_term_trucks, :take_in, :temp_hire, :truck_monitoring, :hardware, :campaign_rep1, :campaign_rep2, :campaigns,
+        :campaigns_admin, :cod, :cod_role, :campaign_role)
     end
 end

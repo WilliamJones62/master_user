@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Employee_Status: MyString
+  Badge_: MyString
+  ssn4: MyString
+
+two:
+  Employee_Status: MyString
+  Badge_: MyString
+  ssn4: MyString

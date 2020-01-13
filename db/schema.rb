@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191008171633) do
+ActiveRecord::Schema.define(version: 20191216163737) do
+
+  create_table "employees", force: :cascade do |t|
+    t.string "Employee_Status"
+    t.string "Badge_"
+    t.string "ssn4"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "global_users", force: :cascade do |t|
     t.string "manager"
@@ -32,6 +40,15 @@ ActiveRecord::Schema.define(version: 20191008171633) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email"
+    t.boolean "hardware"
+    t.string "password"
+    t.string "campaign_rep1"
+    t.string "campaign_rep2"
+    t.boolean "campaigns"
+    t.boolean "campaigns_admin"
+    t.boolean "cod"
+    t.string "cod_role"
+    t.string "campaign_role"
   end
 
   create_table "user_loads", force: :cascade do |t|
@@ -59,6 +76,9 @@ ActiveRecord::Schema.define(version: 20191008171633) do
     t.boolean "short_term_trucks"
     t.boolean "temp_hire"
     t.boolean "truck_monitoring"
+    t.boolean "take_in"
+    t.boolean "cod"
+    t.string "cod_role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

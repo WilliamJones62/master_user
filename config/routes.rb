@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'global_users/refresh'
   resources :global_users
   resources :user_loads do
     collection { post :import}

@@ -46,20 +46,20 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th> <%= form.label :dispatch %> </th>
-        <th> <%= form.label :holiday_bird_caps %> </th>
-        <th> <%= form.label :order_input %> </th>
-        <th> <%= form.label :pricing %> </th>
-        <th> <%= form.label :rapid_order %> </th>
+        <th> <%= form.label :campaigns %> </th>
+        <th> <%= form.label :campaigns_admin %> </th>
+        <th> <%= form.label :campaign_rep1 %> </th>
+        <th> <%= form.label :campaign_rep2 %> </th>
+        <th> <%= form.label :campaign_role %> </th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td> <%= form.check_box :dispatch, id: :global_user_dispatch %> </td>
-        <td> <%= form.check_box :holiday_bird_caps, id: :global_user_holiday_bird_caps %> </td>
-        <td> <%= form.check_box :order_input, id: :global_user_order_input %> </td>
-        <td> <%= form.check_box :pricing, id: :global_user_pricing %> </td>
-        <td> <%= form.check_box :rapid_order, id: :global_user_rapid_order %> </td>
+        <td> <%= form.check_box :campaigns, id: :global_user_campaigns %> </td>
+        <td> <%= form.check_box :campaigns_admin, id: :global_user_campaigns_admin %> </td>
+        <td> <%= form.text_field :campaign_rep1, id: :global_user_campaign_rep1 %> </td>
+        <td> <%= form.text_field :campaign_rep2, id: :global_user_campaign_rep2 %> </td>
+        <td> <%= form.select :campaign_role, ['', 'Marketing', 'Food Service', 'Admin'], {}, {:value => params[:global_user_campaign_role]} %> </td>
       </tr>
     </tbody>
   </table>
@@ -67,6 +67,43 @@
   <table class="table table-bordered">
     <thead>
       <tr>
+        <th> <%= form.label :cod, "COD" %> </th>
+        <th> <%= form.label :cod_role, "COD role" %> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> <%= form.check_box :cod, id: :global_user_cod %> </td>
+        <td> <%= form.select :cod_role, ['', 'Logistics', 'Accounting', 'Admin'], {}, {:value => params[:global_user_cod_role]} %> </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th> <%= form.label :dispatch %> </th>
+        <th> <%= form.label :hardware %> </th>
+        <th> <%= form.label :holiday_bird_caps %> </th>
+        <th> <%= form.label :order_input %> </th>
+        <th> <%= form.label :pricing %> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> <%= form.check_box :dispatch, id: :global_user_dispatch %> </td>
+        <td> <%= form.check_box :hardware, id: :global_user_hardware %> </td>
+        <td> <%= form.check_box :holiday_bird_caps, id: :global_user_holiday_bird_caps %> </td>
+        <td> <%= form.check_box :order_input, id: :global_user_order_input %> </td>
+        <td> <%= form.check_box :pricing, id: :global_user_pricing %> </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th> <%= form.label :rapid_order %> </th>
         <th> <%= form.label :refusals %> </th>
         <th> <%= form.label :short_term_trucks %> </th>
         <th> <%= form.label :take_in %> </th>
@@ -75,6 +112,7 @@
     </thead>
     <tbody>
       <tr>
+        <td> <%= form.check_box :rapid_order, id: :global_user_rapid_order %> </td>
         <td> <%= form.check_box :refusals, id: :global_user_refusals %> </td>
         <td> <%= form.check_box :short_term_trucks, id: :global_user_short_term_trucks %> </td>
         <td> <%= form.check_box :take_in, id: :global_user_take_in %> </td>

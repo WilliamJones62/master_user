@@ -19,8 +19,5 @@
   </tbody>
 </table>
 
-<h2> Import Users</h2>
-<%= form_tag import_user_loads_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import" %>
-<% end %>
+<h2> Refresh Users</h2>
+<%= link_to 'Refresh', global_users_refresh_path, class: "btn btn-primary" %>
