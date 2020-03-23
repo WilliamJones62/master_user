@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191216163737) do
+ActiveRecord::Schema.define(version: 20200318205248) do
 
   create_table "employees", force: :cascade do |t|
     t.string "Employee_Status"
@@ -49,6 +49,17 @@ ActiveRecord::Schema.define(version: 20191216163737) do
     t.boolean "cod"
     t.string "cod_role"
     t.string "campaign_role"
+    t.boolean "focus_items"
+    t.string "focus_items_role"
+    t.string "focus_items_manager"
+    t.string "focus_items_rep1"
+    t.string "focus_items_rep2"
+    t.string "campaign_manager"
+    t.boolean "retail_order_input"
+    t.boolean "retail_rapid_order"
+    t.string "retail_order_input_rep1"
+    t.string "retail_order_input_rep2"
+    t.string "retail_rapid_order_role"
   end
 
   create_table "user_loads", force: :cascade do |t|
