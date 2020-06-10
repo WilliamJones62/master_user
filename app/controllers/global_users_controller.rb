@@ -71,6 +71,7 @@ class GlobalUsersController < ApplicationController
       params.require(:global_user).permit(:manager, :manager_id, :user_dept, :dept_manager, :dispatch, :holiday_bird_caps, :master_user, :order_input, :pricing,
         :prospects, :rapid_order, :refusals, :short_term_trucks, :take_in, :temp_hire, :truck_monitoring, :hardware, :campaign_rep1, :campaign_rep2, :campaigns,
         :campaigns_admin, :cod, :cod_role, :campaign_role, :campaign_manager, :focus_items, :focus_items_rep1, :focus_items_rep2, :focus_items_role,
-        :focus_items_manager, :retail_order_input, :retail_rapid_order, :retail_order_input_rep1, :retail_order_input_rep2, :retail_rapid_order_role)
+        :focus_items_manager, :retail_order_input, :retail_rapid_order, :retail_order_input_rep1, :retail_order_input_rep2, :retail_rapid_order_role,
+        :complaints, :complaints_role, :complaints_dc)
     end
 end

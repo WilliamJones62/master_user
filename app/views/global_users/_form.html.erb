@@ -84,6 +84,23 @@
   <table class="table table-bordered">
     <thead>
       <tr>
+        <th> <%= form.label :complaints, "Complaints" %> </th>
+        <th> <%= form.label :complaints_role, "Complaints role" %> </th>
+        <th> <%= form.label :complaints_dc, "Complaints DC" %> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td> <%= form.check_box :complaints, id: :global_user_complaints %> </td>
+        <td> <%= form.select :complaints_role, ['', 'Accounting', 'Inventory', 'Logistics', 'Operations', 'Quality', 'Sales', 'Admin'], {}, {:value => params[:global_user_complaints_role]} %> </td>
+        <td> <%= form.select :complaints_dc,  ['NJ', 'IL', 'GA', 'TX', 'CO'], {}, {:value => params[:global_user_complaints_dc]} %> </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
         <th> <%= form.label :focus_items %> </th>
         <th> <%= form.label :focus_items_manager %> </th>
         <th> <%= form.label :focus_items_rep1 %> </th>
