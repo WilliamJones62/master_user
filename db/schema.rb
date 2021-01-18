@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200330143004) do
+ActiveRecord::Schema.define(version: 20201201142550) do
 
   create_table "employees", force: :cascade do |t|
     t.string "Employee_Status"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20200330143004) do
     t.boolean "take_in"
     t.boolean "cod"
     t.string "cod_role"
+    t.string "badge_numb"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
